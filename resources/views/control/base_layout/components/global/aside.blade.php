@@ -47,6 +47,7 @@
 								</li>
 
 								{{-- Category Links --}}
+                                @auth('user')
 								<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 									<a href="javascript:;" class="menu-link menu-toggle">
 										<span class="svg-icon menu-icon">
@@ -93,7 +94,7 @@
 										</ul>
 									</div>
 								</li>
-
+                                @endauth
 								{{-- Library Links --}}
 								<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 									<a href="javascript:;" class="menu-link menu-toggle">

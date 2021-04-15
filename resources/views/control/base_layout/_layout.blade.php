@@ -3,7 +3,7 @@
 		@includeif('control.base_layout.components.header.header_meta')
 		<style type="text/css">
 			#kt_wrapper {
-				padding-top: 65px !important; 
+				padding-top: 65px !important;
 			}
 			#kt_header {
 				background-color: #1E1E2D;
@@ -29,7 +29,7 @@
 					<!--begin::Content-->
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						<div class="container">
-							@if(session()->has('success'))								
+							@if(session()->has('success'))
 								<div class="alert alert-custom alert-primary fade show" role="alert">
 								    <div class="alert-icon"><i class="fa fa-check"></i></div>
 								    <div class="alert-text">{{session()->get('success')}}</div>
@@ -48,7 +48,7 @@
 					</div>
 					<!--end::Content-->
 					<!--begin::Footer-->
-					@includeif('control.base_layout.components.footer.footer')
+{{--					@includeif('control.base_layout.components.footer.footer')--}}
 					<!--end::Footer-->
 				</div>
 				<!--end::Wrapper-->

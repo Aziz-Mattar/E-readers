@@ -26,7 +26,7 @@ Route::group(['prefix' => 'user'], function() {
     Route::delete('delete/{id}', ['as' => 'user.delete', 'uses' => 'control\API\UserController@destroy']);
 });
 
-Route::group(['prefix' => 'category'], function() {
+Route::group(['prefix' => 'category', 'middleware' => 'auth:user'], function() {
     Route::get('', ['as' => 'category.index', 'uses' => 'control\API\CategoryController@index']);
     Route::get('{id}', ['as' => 'category.show', 'uses' => 'control\API\CategoryController@show']);
     Route::post('create', ['as' => 'category.store', 'uses' => 'control\API\CategoryController@store']);
@@ -35,9 +35,15 @@ Route::group(['prefix' => 'category'], function() {
 });
 
 Route::group(['prefix' => 'book'], function() {
-    Route::get('', ['as' => 'book.index', 'uses' => 'control\API\BookController@index']);
-    Route::get('{id}', ['as' => 'book.show', 'uses' => 'control\API\Bookontroller@show']);
+    Route::get('all', ['as' => 'book.index', 'uses' => 'control\API\BookController@index']);
+    Route::get('{id}', ['as' => 'book.show', 'uses' => 'control\API\BookController@show']);
     Route::post('create', ['as' => 'book.store', 'uses' => 'control\API\BookController@store']);
     Route::match(['put', 'patch'], 'update/{id}', ['as' => 'book.store', 'uses' => 'control\API\BookController@update']);
-    Route::delete('delete/{id}', ['as' => 'book.delete', 'uses' => 'control\API\BookyController@destroy']);
+    Route::delete('delete/{id}', ['as' => 'book.delete', 'uses' => 'control\API\BookController@destroy']);
 });
+
+Route::group(['prefix' => 'auth'], function() {
+    Route::post('login', ['as' => 'auth.login', 'uses' => 'Auth\API\AuthController@login']);
+});
+
+

@@ -19,7 +19,7 @@ Route::get('/dashboard', function () {
 
 
 // Category Routes
-Route::group(['prefix' => 'category'], function() {
+Route::group(['prefix' => 'category', 'middleware' => 'auth'], function() {
 	Route::get('index', ['as' => 'category.index', 'uses' => 'control\CategoryController@index']);
 	Route::get('deleted', ['as' => 'category.deleted', 'uses' => 'control\CategoryController@onlyTrashed']);
 	Route::get('create', ['as' => 'category.create', 'uses' => 'control\CategoryController@create']);
